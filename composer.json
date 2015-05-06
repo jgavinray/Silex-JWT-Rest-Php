@@ -1,0 +1,13 @@
+{
+  "name": "DaGopherboy/Silex-JWT-Rest-Php",
+  "description": "Sample Silex REST Api Application with Json Web Token Authentication",
+  "license": "MIT",
+  "require": {
+    "php"                   : ">=5.5.0",
+    "silex/silex"           : "~1.2",
+    "firebase/php-jwt"      : "~1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": ">=4.3.0"
+  }
+}
