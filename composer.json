@@ -3,7 +3,6 @@
   "description": "Sample Silex REST Api Application with Json Web Token Authentication",
   "license": "MIT",
   "require": {
-    "php"                   : ">=5.5.0",
     "silex/silex"           : "~1.2",
     "firebase/php-jwt"      : "~1.0"
   },
