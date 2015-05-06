@@ -1,5 +1,5 @@
 {
-  "name": "DaGopherboy/Silex-JWT-Rest-Php",
+  "name": "da-gopherboy/silex-jwt-rest-php",
   "description": "Sample Silex REST Api Application with Json Web Token Authentication",
   "license": "MIT",
   "require": {
