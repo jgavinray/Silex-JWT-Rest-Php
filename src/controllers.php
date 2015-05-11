@@ -2,8 +2,7 @@
 use Symfony\Component\HttpFoundation\Response;
 
 $app->get('/', function() use($app) {
-    return $app->json([ 'status'     => 0,
-                        'message'    => 'Access Denied']);
+    return $app->json(['status'=> 0,'message'=> 'Access Denied']);
 });
 
 $app->error(function (\Exception $e, $code) use ($app) {
