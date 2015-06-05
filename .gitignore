@@ -7,9 +7,6 @@ Vagrantfile
 vendor/
 composer.lock
 
-# Mac Specific
-.DS_Store
-
 # Node stuff (Grunt, etc)
 npm-debug.log
 node_modules/
