@@ -16,5 +16,5 @@
         </testsuite>
     </testsuites>
 
-
+<!-- Need to put logging in here -->
 </phpunit>
