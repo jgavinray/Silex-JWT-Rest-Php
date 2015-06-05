@@ -1,10 +1,9 @@
 <?php
-use Symfony\Component\HttpFoundation\Response;
 
-$app->get('/', function() use($app) {
-    $response = ['status'=> 0,'message'=> 'Access Denied'];
-    return $app->json($response);
-});
+use Symfony\Component\HttpFoundation\Response;
+use DaGopherboy\SilexJWTRestPhp\Routes\Open\RootRouteProvider;
+
+$app->mount('/', new RootRouteProvider);
 
 $app->error(function (\Exception $e, $code) use ($app) {
     switch ($code) {

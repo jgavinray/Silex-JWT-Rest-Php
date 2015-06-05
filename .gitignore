@@ -7,3 +7,5 @@ Vagrantfile
 vendor/
 composer.lock
 
+# Mac Specific
+.DS_Store
