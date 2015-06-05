@@ -3,7 +3,6 @@
 class EmptyTest extends \PHPUnit_Framework_TestCase {
 
     public static function setUpBeforeClass() {
-
     }
     protected function setUp() {
     }

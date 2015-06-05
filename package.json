@@ -1,0 +1,25 @@
+{
+  "name": "silex-jwt-rest-php",
+  "description": "Silex Framework - REST Api with JWT Authentication",
+  "version": "0.0.1",
+  "author": "J. Gavin Ray",
+  "license": "MIT",
+  "homepage": "https://github.com/DaGopherboy/Silex-JWT-Rest-Php",
+  "main": "gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DaGopherboy/Silex-JWT-Rest-Php.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-phpunit": "~0.3.6",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt-shell": "~1.1.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "phpunit"
+  }
+}
