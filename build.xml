@@ -2,8 +2,7 @@
 <project name="Silex-JWT-Rest-Php" default="build">
   <property name="builddir" value="${basedir}/build"/>
   <property name="toolsdir" value="${builddir}/tools"/>
-  <property name="composer" value="${toolsdir}/composer.phar"/>
-    <target name="build" depends="prepare,pdepend,phpunit"/>
+    <target name="build" depends="prepare,composer,pdepend,phpunit"/>
 
     <target name="clean" unless="clean.done" description="Cleanup build artifacts">
         <delete dir="${basedir}/build/logs"/>
@@ -16,34 +15,9 @@
         <mkdir dir="${basedir}/build/pdepend"/>
         <property name="prepare.done" value="true"/>
     </target>
-
-  <target name="php-check">
-    <condition property="php" value="php">
-      <not>
-        <isset property="${php}"/>
-      </not>
-    </condition>
-  </target>
-
-  <target name="composer-check" depends="prepare">
-    <available file="${composer}" property="composer.present"/>
-  </target>
-
-  <target name="composer-download" depends="composer-check" unless="composer.present">
-    <property name="composer.noselfupdate" value="true"/>
-    <get src="https://getcomposer.org/composer.phar" dest="${composer}"/>
-  </target>
-
-  <target name="composer-selfupdate" depends="php-check,composer-download" unless="composer.noselfupdate">
-    <exec executable="${php}">
-      <arg value="${composer}"/>
-      <arg value="self-update"/>
-    </exec>
-  </target>
  
-  <target name="composer" depends="composer-selfupdate" unless="composer.noupdate" description="Run composer update">
-    <exec executable="${php}">
-      <arg value="${composer}"/>
+  <target name="composer" unless="composer.noupdate" description="Run composer update">
+    <exec executable="composer">
       <arg value="update"/>
     </exec>
   </target>
