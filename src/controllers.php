@@ -2,8 +2,10 @@
 
 use Symfony\Component\HttpFoundation\Response;
 use DaGopherboy\SilexJWTRestPhp\Routes\Open\RootRouteProvider;
+//use DaGopherboy\SilexJWTRestPhp\Routes\Open\AuthenticateProvider;
 
 $app->mount('/', new RootRouteProvider);
+$app->match('/authenticate', "DaGopherboy\SilexJWTRestPhp\Routes\Open\AuthenticateProvider::authenticate");
 
 $app->error(function (\Exception $e, $code) {
     switch ($code) {
