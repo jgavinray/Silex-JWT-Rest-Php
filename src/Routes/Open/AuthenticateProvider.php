@@ -15,14 +15,20 @@ class AuthenticateProvider
 
         if ($username == 'test' && $password == 'test') {
             $jsonObject = array(
-                "iss" => "https://github.com/firebase/php-jwt",
-                "aud" => "https://github.com/DaGopherboy/Silex-JWT-Rest-Php",
-                "iat" => time(),
-                "exp" => time()+60*60*24, // 24 hours
-                "jti" => time()
+                "iss" => "DaGopherboy", // Claiming Issure (Can't be validated atm)
+                "aud" => "https://github.com/DaGopherboy/Silex-JWT-Rest-Php", // Intended Audience
+                "iat" => time(), // Issued At Time
+                "nbf" => time(), // Not Before Time
+                "exp" => time()+60*60*24, // Expiration Time
             );
 
-            $jsonWebToken = JWT::encode($jsonObject, '12345667890');
+            $someSuperSecretKey = getenv('SomeSuperSecretKey');
+
+            if(empty($someSuperSecretKey)) {
+                $someSuperSecretKey = '123456789';
+            }
+
+            $jsonWebToken = JWT::encode($jsonObject, $someSuperSecretKey);
 
             return $app->json([
                                'status' =>  1,
