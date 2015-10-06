@@ -4,6 +4,7 @@ namespace DaGopherboy\SilexJWTRestPhp\Routes\Open;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
+use Firebase\JWT\JWT;
 
 class AuthenticateProvider
 {
@@ -21,7 +22,7 @@ class AuthenticateProvider
                 "jti" => time()
             );
 
-            $jsonWebToken = \JWT::encode($jsonObject, '12345667890');
+            $jsonWebToken = JWT::encode($jsonObject, '12345667890');
 
             return $app->json([
                                'status' =>  1,
