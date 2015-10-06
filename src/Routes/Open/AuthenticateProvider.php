@@ -15,24 +15,36 @@ class AuthenticateProvider
 
         if ($username == 'test' && $password == 'test') {
             $jsonObject = array(
-                "iss" => "DaGopherboy", // Claiming Issure (Can't be validated atm)
+                // Registered Claims
+                "iss" => "DaGopherboy", // Claiming Issure
                 "aud" => "https://github.com/DaGopherboy/Silex-JWT-Rest-Php", // Intended Audience
                 "iat" => time(), // Issued At Time
                 "nbf" => time(), // Not Before Time
-                "exp" => time()+60*60*24, // Expiration Time
+                "exp" => time()+60*60*24, // Expiration Time (24 hours)
+                // Public Claims
+                "firstName" => "Test",
+                "lastName" => "Tester",
+                "title" => "Head of Quality Assurance",
+                "admin" => true
             );
 
+            // Create the header that has details about what type of token it is, and how it was signed.
+            $jsonWebTokenHeader = base64_encode(json_encode(["typ" => "JWT", "alg" => "HS256"]));
+
+            // Get the secret key for signing the JWT from an environment variable
             $someSuperSecretKey = getenv('SomeSuperSecretKey');
 
+            // If no environment variable is set, use this one.
             if(empty($someSuperSecretKey)) {
                 $someSuperSecretKey = '123456789';
             }
 
+            // Sign the JWT with the secret key
             $jsonWebToken = JWT::encode($jsonObject, $someSuperSecretKey);
 
             return $app->json([
                                'status' =>  1,
-                               'message' => $jsonWebToken
+                               'message' => $jsonWebTokenHeader.".".$jsonWebToken
                                 ]);
         } else {
 
