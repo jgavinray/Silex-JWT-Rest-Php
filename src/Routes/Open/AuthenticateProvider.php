@@ -22,10 +22,12 @@ class AuthenticateProvider
                 "nbf" => time(), // Not Before Time
                 "exp" => time()+60*60*24, // Expiration Time (24 hours)
                 // Public Claims
-                "firstName" => "Test",
-                "lastName" => "Tester",
-                "title" => "Head of Quality Assurance",
-                "admin" => true
+                "payload" => [
+                    "firstName" => "Test",
+                    "lastName" => "Tester",
+                    "title" => "Head of Quality Assurance",
+                    "admin" => true
+                ]
             );
 
             // Create the header that has details about what type of token it is, and how it was signed.
