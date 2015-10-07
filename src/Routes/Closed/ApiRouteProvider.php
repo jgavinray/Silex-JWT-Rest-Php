@@ -14,6 +14,7 @@ class ApiRouteProvider implements ControllerProviderInterface
 
         $before = function (Request $request) {
             // Validation here - Check JWT or whatever
+
         };
 
         $route->get('/', function () use ($app) {
@@ -22,6 +23,7 @@ class ApiRouteProvider implements ControllerProviderInterface
                 'message'    => 'Something'
             ]);
         })->before($before);
+
         return $route;
     }
 }
