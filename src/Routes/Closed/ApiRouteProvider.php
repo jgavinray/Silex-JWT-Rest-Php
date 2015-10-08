@@ -18,8 +18,12 @@ class ApiRouteProvider implements ControllerProviderInterface
         $before = function (Request $request) use ($app) {
             // Validation here - Check JWT or whatever
 
-            // Step 1 - strip out the bearer
+            // Strip out the bearer
             $rawHeader = $request->headers->get('Authorization');
+            if (strpos($rawHeader, 'Bearer ') === false) {
+                return new Response('Unauthorized', 401);
+            }
+
             $headerWithoutBearer = str_replace('Bearer ', '', $rawHeader);
 
             // Get the secret key for signing the JWT from an environment variable

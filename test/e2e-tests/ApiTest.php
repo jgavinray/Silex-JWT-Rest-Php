@@ -33,7 +33,7 @@ class ApiTest extends WebTestCase
                          ['HTTP_AUTHORIZATION' => "Bearer $this->jwt"]
         );
         $response = json_decode($client->getResponse()->getContent());
-        $this->assertEquals($response->status,1);
+        $this->assertEquals($response->status, 1);
     }
 
     public function testApiForMessage() {
@@ -50,9 +50,24 @@ class ApiTest extends WebTestCase
                          ['HTTP_AUTHORIZATION' => "Bearer $this->jwt"]
         );
         $response = json_decode($client->getResponse()->getContent());
-        $this->assertEquals($response->message,'{"firstName":"Test","lastName":"Tester","title":"Head of Quality Assurance","admin":true}');
+        $this->assertEquals($response->message, '{"firstName":"Test","lastName":"Tester","title":"Head of Quality Assurance","admin":true}');
     }
 
+    public function testApiWithoutJWTCheckFor401Status() {
+        $client = $this->createClient();
+
+        $client->request('GET', '/api/');
+        $response = $client->getResponse()->getStatusCode();
+        $this->assertEquals($response, 401);
+    }
+
+    public function testApiWithoutJWTCheckForUnauthorizedContent() {
+        $client = $this->createClient();
+
+        $client->request('GET', '/api/');
+        $response = $client->getResponse()->getContent();
+        $this->assertEquals($response, 'Unauthorized');
+    }
     public function getTokenWithValidUsernameAndPassword() {
         $client = $this->createClient();
         $userDetails = ['username'  => $this->validuser,
