@@ -14,6 +14,7 @@ class AuthenticateTest extends WebTestCase
         require __DIR__ . '/../../src/controllers.php';
         return $this->app = $app;
     }
+
     public function testAuthenticateCheckStatus() {
         $client = $this->createClient();
         $userDetails = ['username'  => 'test',

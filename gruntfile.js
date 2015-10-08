@@ -13,8 +13,8 @@ module.exports = function(grunt) {
                 command: 'phpunit'
             }
         }
-    })
+    });
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks('grunt-shell');
     grunt.registerTask('default', ['watch']);
-}
+};
