@@ -30,9 +30,6 @@ class AuthenticateProvider
                 ]
             );
 
-            // Create the header that has details about what type of token it is, and how it was signed.
-            $jsonWebTokenHeader = base64_encode(json_encode(["typ" => "JWT", "alg" => "HS256"]));
-
             // Get the secret key for signing the JWT from an environment variable
             $someSuperSecretKey = getenv('SomeSuperSecretKey');
 
@@ -46,7 +43,7 @@ class AuthenticateProvider
 
             return $app->json([
                                'status' =>  1,
-                               'message' => $jsonWebTokenHeader.".".$jsonWebToken
+                               'message' => $jsonWebToken
                                 ]);
         } else {
 
