@@ -16,7 +16,6 @@ class ApiRouteProvider implements ControllerProviderInterface
         $route = $app['controllers_factory'];
 
         $before = function (Request $request) use ($app) {
-            // Validation here - Check JWT or whatever
 
             // Strip out the bearer
             $rawHeader = $request->headers->get('Authorization');
@@ -45,8 +44,8 @@ class ApiRouteProvider implements ControllerProviderInterface
 
         $route->get('/', function () use ($app) {
             return $app->json([
-                'status'     =>  1,
-                'message'    => json_encode($app['payload'])
+                                'status'    =>  1,
+                                'message'   => json_encode($app['payload'])
             ]);
         })->before($before);
 
