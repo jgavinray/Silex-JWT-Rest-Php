@@ -1,7 +1,7 @@
 # Silex-JWT-Rest-Php
 Sample Project: 
 
-Bare bones Silex Based Rest API that uses Json Web Tokens for Authentication
+PHP 5.3+ project that utilizes the Silex Framework.  This is a bare bones REST Api that uses JSON Web Tokens for Authentication.
 
 
 [![Build Status](https://travis-ci.org/DaGopherboy/Silex-JWT-Rest-Php.svg)](https://travis-ci.org/DaGopherboy/Silex-JWT-Rest-Php)
