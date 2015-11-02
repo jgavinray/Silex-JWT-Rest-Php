@@ -45,7 +45,7 @@ tested on Windows, Linux, and OS X terminals.
 Good question, there are many great frameworks out there that have authentication modules that can make bootstrapping
 a new api a snap.  What I wanted to do was have a very minimalist bootstrap project that I can pull off the shelf and
 start writing code to prototype something.  In addition to that goal, this project has provided a fantastic learning 
-opportunity of how to use JSON Web Tokens [http://jwt.io](http://jwt.io); And how they can play a part in a security 
+opportunity of how to use JSON Web Tokens ([http://jwt.io](http://jwt.io)); And how they can play a part in a security 
 strategy for REST APIs. 
 
 ## Contributions
