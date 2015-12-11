@@ -3,7 +3,6 @@ Sample Project:
 
 PHP 5.5+ project that utilizes the Silex Framework.  This is a bare bones REST Api that uses JSON Web Tokens for Authentication.
 
-
 [![Build Status](https://travis-ci.org/DaGopherboy/Silex-JWT-Rest-Php.svg)](https://travis-ci.org/DaGopherboy/Silex-JWT-Rest-Php)
 [![Code Climate](https://codeclimate.com/github/DaGopherboy/Silex-JWT-Rest-Php/badges/gpa.svg)](https://codeclimate.com/github/DaGopherboy/Silex-JWT-Rest-Php)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/fb66a40c-78a5-4950-8c16-dd6e4e73952b/mini.png)](https://insight.sensiolabs.com/projects/fb66a40c-78a5-4950-8c16-dd6e4e73952b)
