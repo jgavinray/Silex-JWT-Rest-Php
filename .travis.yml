@@ -32,3 +32,7 @@ script: phpunit --configuration phpunit.xml --coverage-text
 # configure notifications (email, IRC, campfire etc)
 #notifications:
 #irc: "irc.freenode.org#yourfavouriteroomfortravis"
+
+addons:
+    code_climate:
+        repo_token: 2796569e44098c8429285a101fde23d8b76145d140d08d03d0cf14e5d599cb23
